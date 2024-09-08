@@ -26,4 +26,4 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Disable mobile data by default
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.android.mobiledata=false
+    ro.com.android.mobiledata=true
