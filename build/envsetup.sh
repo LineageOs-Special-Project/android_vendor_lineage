@@ -928,7 +928,6 @@ export BUILD_BROKEN_DISABLE_BAZEL=
 export PRODUCT_USE_SCUDO=true
 
 export BUILD_BROKEN_DUP_RULES=true
-export RELAX_USES_LIBRARY_CHECK=true
 
 # Define color codes
 RED='\033[0;31m'
@@ -991,6 +990,35 @@ while true; do
     elif [[ "$response" == "N" ]]; then
         export SKIP_ABI_CHECKS=false
         echo -e "${YELLOW}ABI checks not skipped${RESET}"
+        echo "                                                                  "
+        break
+    else
+        echo -e "${RED}Invalid input. Please enter 'Y' or 'N'${RESET}"
+        echo "                                                                  "
+    fi
+done
+
+## LIBRARY CHECK
+# Loop until valid input is received
+while true; do
+    # Display the prompt
+    echo -e "${CYAN}Relax Library check (Y/N)${RESET}"
+
+    # Read user input
+    read response
+
+    # Convert response to uppercase
+    response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
+
+    # Conditionally export the variable
+    if [[ "$response" == "Y" ]]; then
+        export RELAX_USES_LIBRARY_CHECK=true
+        echo -e "${GREEN}Library Check relaxed${RESET}"
+        echo "                                                                  "
+        break
+    elif [[ "$response" == "N" ]]; then
+        export RELAX_USES_LIBRARY_CHECK=false
+        echo -e "${YELLOW}Library Check enforced${RESET}"
         echo "                                                                  "
         break
     else
