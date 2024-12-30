@@ -922,7 +922,6 @@ function fixup_common_out_dir() {
     fi
 }
 
-export SKIP_ABI_CHECKS=true
 export BUILD_BROKEN_DISABLE_BAZEL=
 
 #SCUDO
@@ -963,6 +962,35 @@ while true; do
         export GLOBAL_THINLTO=false
         export USE_THINLTO_CACHE=false
         echo -e "${YELLOW}Building without ThinLTO${RESET}"
+        echo "                                                                  "
+        break
+    else
+        echo -e "${RED}Invalid input. Please enter 'Y' or 'N'${RESET}"
+        echo "                                                                  "
+    fi
+done
+
+## ABI CHECKS
+# Loop until valid input is received
+while true; do
+    # Display the prompt
+    echo -e "${CYAN}Disable ABI checks? (Y/N)${RESET}"
+
+    # Read user input
+    read response
+
+    # Convert response to uppercase
+    response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
+
+    # Conditionally export the variable
+    if [[ "$response" == "Y" ]]; then
+        export SKIP_ABI_CHECKS=true
+        echo -e "${GREEN}ABI checks skipped${RESET}"
+        echo "                                                                  "
+        break
+    elif [[ "$response" == "N" ]]; then
+        export SKIP_ABI_CHECKS=false
+        echo -e "${YELLOW}ABI checks not skipped${RESET}"
         echo "                                                                  "
         break
     else
