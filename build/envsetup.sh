@@ -1027,6 +1027,35 @@ while true; do
     fi
 done
 
+#EPPE
+# Loop until valid input is received
+while true; do
+    # Display the prompt
+    echo -e "${CYAN}Disable EPPE (Y/N)${RESET}"
+
+    # Read user input
+    read response
+
+    # Convert response to uppercase
+    response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
+
+    # Conditionally export the variable
+    if [[ "$response" == "Y" ]]; then
+        export TARGET_DISABLE_EPPE=true
+        echo -e "${GREEN}EPPE Disabled${RESET}"
+        echo "                                                                  "
+        break
+    elif [[ "$response" == "N" ]]; then
+        export TARGET_DISABLE_EPPE=false
+        echo -e "${YELLOW}EPPE not Disabled${RESET}"
+        echo "                                                                  "
+        break
+    else
+        echo -e "${RED}Invalid input. Please enter 'Y' or 'N'${RESET}"
+        echo "                                                                  "
+    fi
+done
+
 ## GMS
 # Loop until valid input is received for the initial prompt
 while true; do
