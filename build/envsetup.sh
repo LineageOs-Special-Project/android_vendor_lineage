@@ -1057,60 +1057,31 @@ while true; do
 done
 
 ## GMS
-# Loop until valid input is received for the initial prompt
+# Loop until valid input is received
 while true; do
     # Display the prompt with color
     echo -e "${CYAN}Do you wish to include GMS? (Y/N):${RESET}"
+
     # Read user input
     read response
+
     # Convert response to uppercase
     response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
+
     # Validate response
     if [[ "$response" == "Y" ]]; then
-        # Export WITH_GMS=true
         export WITH_GMS=true
         echo -e "${GREEN}GMS inclusion enabled.${RESET}"
-        echo "                                                                  "
-        # Prompt for GMS version
-        while true; do
-            echo -e "${CYAN}Which version of GMS do you want to include? (FULL, MINI, PICO):${RESET}"
-            read gms_version
-            gms_version=$(echo "$gms_version" | tr '[:lower:]' '[:upper:]')
-            if [[ "$gms_version" == "FULL" ]]; then
-                export TARGET_USES_PICO_GAPPS=false
-                export TARGET_USES_MINI_GAPPS=false
-                echo "                                                                  "
-                echo -e "${GREEN}Including FULL GMS.${RESET}"
-                echo "                                                                  "
-                break
-            elif [[ "$gms_version" == "MINI" ]]; then
-                export TARGET_USES_MINI_GAPPS=true
-                export TARGET_USES_PICO_GAPPS=false
-                echo -e "${GREEN}Including MINI GMS.${RESET}"
-                echo "                                                                  "
-                break
-            elif [[ "$gms_version" == "PICO" ]]; then
-                export TARGET_USES_PICO_GAPPS=true
-                export TARGET_USES_MINI_GAPPS=false
-                echo -e "${GREEN}Including PICO GMS.${RESET}"
-                echo "                                                                  "
-                break
-            else
-                echo -e "${RED}Invalid input. Please enter FULL, MINI, or PICO.${RESET}"
-                echo "                                                                  "
-            fi
-        done
+        echo "                                                                "
         break
     elif [[ "$response" == "N" ]]; then
         export WITH_GMS=false
-        export TARGET_USES_MINI_GAPPS=false
-        export TARGET_USES_PICO_GAPPS=false
         echo -e "${YELLOW}GMS inclusion disabled.${RESET}"
-        echo "                                                                  "
+        echo "                                                                "
         break
     else
         echo -e "${RED}Invalid input. Please enter 'Y' or 'N'.${RESET}"
-        echo "                                                                  "
+        echo "                                                                "
     fi
 done
     echo "Time to Build!"
