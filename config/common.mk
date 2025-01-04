@@ -108,8 +108,7 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
 PRODUCT_PACKAGES += \
-    LineageParts \
-    LineageSetupWizard
+    LineageParts
 endif
 
 PRODUCT_PACKAGES += \
