@@ -283,7 +283,6 @@ PRODUCT_PACKAGES += \
     WebViewGoogle-Stub \
     arcore-1.42 \
     talkback \
-    AICorePrebuilt-aicore_20240509.01_RC02 \
     AmbientStreaming \
     ConfigUpdater \
     CreativeAssistant \
