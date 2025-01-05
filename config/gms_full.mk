@@ -293,7 +293,6 @@ PRODUCT_PACKAGES += \
     GoogleRestorePrebuilt-v603273 \
     PartnerSetupPrebuilt \
     Phonesky \
-    PixelAIPrebuilt \
     PrebuiltBugle \
     PrebuiltGmsCoreVic \
     PrebuiltGmsCoreVic_AdsDynamite.uncompressed \
@@ -312,7 +311,6 @@ PRODUCT_PACKAGES += \
     SetupWizardPrebuilt \
     TetheringEntitlement \
     TurboPrebuilt \
-    WeatherPixelPrebuilt_24D1 \
     AccessibilityMenu \
     EmergencyInfoGoogleNoUi \
     Flipendo \
