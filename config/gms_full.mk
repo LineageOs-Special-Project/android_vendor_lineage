@@ -285,7 +285,6 @@ PRODUCT_PACKAGES += \
     talkback \
     AmbientStreaming \
     ConfigUpdater \
-    CreativeAssistant \
     DeviceIntelligenceNetworkPrebuilt-U.32_V.7_playstore_astrea_20240725.00_RC01 \
     DevicePersonalizationPrebuiltPixel2024-U.32_V.7_playstore_aiai_20240725.00_RC08 \
     GoogleDialer \
